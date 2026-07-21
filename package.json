@@ -1,0 +1,16 @@
+{
+  "name": "browserstack-demo",
+  "version": "2.0.0",
+  "description": "Demo todo app with BrowserStack cross-browser Selenium + Jest tests",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test:browserstack": "jest --config jest.config.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.20.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

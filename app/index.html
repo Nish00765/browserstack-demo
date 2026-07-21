@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Todo Demo App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 420px; margin: 60px auto; }
+    h1 { font-size: 22px; }
+    #todo-input { padding: 8px; width: 70%; }
+    #add-btn { padding: 8px 16px; }
+    ul { padding-left: 20px; }
+    li { margin: 6px 0; }
+    li button { margin-left: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Cross-Browser Test Demo — Todo App</h1>
+  <input id="todo-input" type="text" placeholder="Add a task" />
+  <button id="add-btn">Add</button>
+  <ul id="todo-list"></ul>
+
+  <script>
+    const input = document.getElementById('todo-input');
+    const addBtn = document.getElementById('add-btn');
+    const list = document.getElementById('todo-list');
+
+    function addTodo() {
+      const text = input.value.trim();
+      if (!text) return;
+      const li = document.createElement('li');
+      li.className = 'todo-item';
+      li.textContent = text;
+
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
+      removeBtn.className = 'remove-btn';
+      removeBtn.onclick = () => li.remove();
+
+      li.appendChild(removeBtn);
+      list.appendChild(li);
+      input.value = '';
+    }
+
+    addBtn.addEventListener('click', addTodo);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') addTodo();
+    });
+  </script>
+</body>
+</html>
